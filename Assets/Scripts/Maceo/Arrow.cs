@@ -5,17 +5,15 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float speed = 7f;
     [SerializeField] private Transform[] waypoints = new Transform[0];
 
-
     public const string HORIZONTAL_NAME = "Horizontal";
 
     private int index;
     private int moveIndex = 1;
-    private Vector3 velocity = Vector3.zero;
+    //private Vector3 velocity = Vector3.zero;
 
     private void Update()
     {
         MoveBetweenWaypoints();
-        
     }
 
     private void MoveBetweenWaypoints()

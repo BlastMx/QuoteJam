@@ -19,7 +19,6 @@ public class SpawningAliment : MonoBehaviour
 
             aliment.transform.position = arrow.position;
             aliment.SetActive(true);
-            return;
         }
     }
 }
