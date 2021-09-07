@@ -18,6 +18,9 @@ public class Arrow : MonoBehaviour
 
     private void MoveBetweenWaypoints()
     {
+        if (!AlimentsChoiceSpawner.instance.canLandAliments)
+            return;
+
         Vector3 nextPosition = waypoints[index].position;
 
         // TO DO -> accelerate the speed with time 

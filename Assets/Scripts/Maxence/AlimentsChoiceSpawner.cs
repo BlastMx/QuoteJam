@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
-public class AlimentsChoiceSpawner : enumIngredients
+public class AlimentsChoiceSpawner : MonoBehaviour
 {
     [HideInInspector]
     public bool canChooseAliments = true;
+    [HideInInspector]
+    public bool canLandAliments = false;
 
     [SerializeField]
     private List<AlimentChoice> alimentChoices = new List<AlimentChoice>();
 
+    public List<GameObject> prefabsAliments = new List<GameObject>();
+
+    public GameObject currentAliment;
+
     public static AlimentsChoiceSpawner instance;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance != null)
@@ -40,11 +46,15 @@ public class AlimentsChoiceSpawner : enumIngredients
 
     void AttributionIngredients()
     {
-        gameObject.SetActive(true);
-        foreach (AlimentChoice aliment in alimentChoices)
-            aliment.AttributionIngredient();
+        SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(0, 0.5f).OnComplete(()=> {
 
-        gameObject.GetComponent<CanvasGroup>().DOFade(1, 1f);
+            gameObject.SetActive(true);
+            foreach (AlimentChoice aliment in alimentChoices)
+                aliment.AttributionIngredient();
+
+            gameObject.GetComponent<CanvasGroup>().DOFade(1, 1f);
+
+        });
     }
 
     void ChooseAliments()
@@ -71,12 +81,13 @@ public class AlimentsChoiceSpawner : enumIngredients
     {
         canChooseAliments = false;
 
+        currentAliment = alimentChoices[value].aliment;
         //prochain aliment devient celui-ci
-        Debug.Log(alimentChoices[value].ingredientsDisponible);
-
-        ingredientsDisponible = alimentChoices[value].ingredientsDisponible;
+        Debug.Log(currentAliment.name);
 
         gameObject.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(()=> {
+            SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(1, 0.5f);
+            canLandAliments = true;
             gameObject.SetActive(false);
         });
     }

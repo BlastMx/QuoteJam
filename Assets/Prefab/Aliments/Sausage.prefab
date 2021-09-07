@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1314196679654897022}
   - component: {fileID: 6917559696598076274}
   - component: {fileID: 6464833390982977018}
+  - component: {fileID: 2719600263255368026}
   m_Layer: 0
   m_Name: Sausage
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9792c9e7334d9d444b0671bdd8a98d3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,3 +96,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2719600263255368026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212489305846260592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01aff2853fcf90b4597dcb6a65d81703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientsDisponible: 6
