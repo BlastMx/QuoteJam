@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class AlimentsChoiceSpawner : MonoBehaviour
+public class AlimentsChoiceSpawner : enumIngredients
 {
     [HideInInspector]
     public bool canChooseAliments = true;
@@ -42,6 +43,8 @@ public class AlimentsChoiceSpawner : MonoBehaviour
         gameObject.SetActive(true);
         foreach (AlimentChoice aliment in alimentChoices)
             aliment.AttributionIngredient();
+
+        gameObject.GetComponent<CanvasGroup>().DOFade(1, 1f);
     }
 
     void ChooseAliments()
@@ -67,8 +70,14 @@ public class AlimentsChoiceSpawner : MonoBehaviour
     void AlimentChosen(int value)
     {
         canChooseAliments = false;
+
         //prochain aliment devient celui-ci
         Debug.Log(alimentChoices[value].ingredientsDisponible);
-        gameObject.SetActive(false);
+
+        ingredientsDisponible = alimentChoices[value].ingredientsDisponible;
+
+        gameObject.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(()=> {
+            gameObject.SetActive(false);
+        });
     }
 }

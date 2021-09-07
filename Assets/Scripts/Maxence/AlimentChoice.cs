@@ -3,22 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AlimentChoice : MonoBehaviour
+public class AlimentChoice : enumIngredients
 {
     [SerializeField] private Text alimentName;
-
-    public enum IngredientsDisponible
-    {
-        Salade,
-        Fromage,
-        Steak,
-        Jambon,
-        Pain,
-        Beurre,
-        Saucisson
-    }
-
-    public IngredientsDisponible ingredientsDisponible;
 
     public void AttributionIngredient()
     {

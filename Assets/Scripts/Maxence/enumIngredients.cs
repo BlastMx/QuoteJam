@@ -4,20 +4,6 @@ using UnityEngine;
 
 public class enumIngredients : MonoBehaviour
 {
-    public static enumIngredients instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-    }
-
     public enum IngredientsDisponible
     {
         Salade,
