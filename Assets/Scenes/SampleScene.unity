@@ -202,13 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ffb8ea44937624b8666b3d93195526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alimentPrefab:
-  - {fileID: 6278278289499983919, guid: 6e2024e0f0c9aa640a11bc32cd0380d2, type: 3}
-  - {fileID: 2050309540910717346, guid: fcf89b2e6dfa265488425916498ae79d, type: 3}
-  - {fileID: 5849191598331039620, guid: d5cdddf6ea414f446b48af5736aee1de, type: 3}
-  - {fileID: 8822886797854976949, guid: e36f27dcbf31bff419e456f5e544038e, type: 3}
-  - {fileID: 8212489305846260592, guid: 80a223a9ced505d4883b494dbe06b406, type: 3}
-  - {fileID: 6502189013174931544, guid: 5239f7921d99a9d43b86de698f5f046c, type: 3}
   arrow: {fileID: 849910942}
 --- !u!1 &114305021
 GameObject:
@@ -316,7 +309,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
