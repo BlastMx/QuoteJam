@@ -5,6 +5,8 @@ public class CameraFollow : MonoBehaviour
     [HideInInspector]
     public Vector3 targetPos;
 
+    public Transform lowerBread;
+
     private void Start()
     {
         targetPos = transform.position;

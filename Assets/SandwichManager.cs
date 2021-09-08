@@ -9,7 +9,11 @@ public class SandwichManager : MonoBehaviour
     [HideInInspector]
     public int comboIngredients = 0;
 
+    public CameraFollow cameraScript;
+
     public List<GameObject> sandwich;
+
+    private int moveCount;
 
     private void Awake()
     {
@@ -52,5 +56,11 @@ public class SandwichManager : MonoBehaviour
                 ScoreManager.instance.combo += 0.5f;
             }
         }
+        MoveCamera();
+    }
+
+    public void MoveCamera()
+    {
+        cameraScript.targetPos.y = sandwich[sandwich.Count - 1].transform.position.y - sandwich[0].transform.position.y;
     }
 }
