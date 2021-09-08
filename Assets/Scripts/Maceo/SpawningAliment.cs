@@ -31,6 +31,8 @@ public class SpawningAliment : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            AlimentsChoiceSpawner.instance.canLandAliments = false;
+
             GameObject aliment = Instantiate(AlimentsChoiceSpawner.instance.currentAliment);
 
             aliment.transform.position = arrow.position;
