@@ -18,7 +18,18 @@ public class OrderManager : MonoBehaviour
     public float time;
 
     int nIngredient;
-    
+
+
+    public static OrderManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+            return;
+
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +40,9 @@ public class OrderManager : MonoBehaviour
             ingredientOnOff[i].SetActive(true); 
 
             int randomIngrediant = Random.Range(0, ingredientName.Count);
-            ingredients[i].name = ingredientName[randomIngrediant] + " :";
+            ingredients[i].name = ingredientName[randomIngrediant];
             ingredientName.RemoveAt(randomIngrediant);
-            ingredients[i].text[0].text = ingredients[i].name;
+            ingredients[i].text[0].text = ingredients[i].name + " :";
 
             ingredients[i].ordredInt = Random.Range(min, max + 1);
             ingredients[i].text[1].text = ingredients[i].ordredInt.ToString();
@@ -43,7 +54,7 @@ public class OrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             for (int i = 0; i < nIngredient; i++)
             {
@@ -58,7 +69,7 @@ public class OrderManager : MonoBehaviour
                     ingredients[i].valid = true;
                 }
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -72,6 +83,44 @@ public class OrderManager : MonoBehaviour
 
                 ingredients[i].text[3].text = (--ingredients[i].countInt).ToString();
             }
+        }
+    }
+
+    public void CheckNewOrded(GameObject check)
+    {
+        for(int i = 0;i<ingredients.Length;i++)
+        {
+            if(ingredients[i].name+"(Clone)" == check.name)
+            {
+                if (ingredients[i].ordredInt > ingredients[i].countInt)
+                    ingredients[i].text[3].text = (++ingredients[i].countInt).ToString();
+
+                if (ingredients[i].ordredInt == ingredients[i].countInt)
+                {
+                    for (int y = 0; y < ingredients[i].text.Length; y++)
+                        ingredients[i].text[y].color = Color.green;
+
+                    ingredients[i].valid = true;
+                }
+            }         
+        }
+    }
+
+    public void CheckFallOrder(GameObject check)
+    {
+        for (int i = 0; i < ingredients.Length; i++)
+        {
+            if(check.name== ingredients[i].name + "(Clone)" )
+            {
+                if (ingredients[i].ordredInt == ingredients[i].countInt)
+                {
+                    for (int y = 0; y < ingredients[i].text.Length; y++)
+                        StartCoroutine(SwitchColor(i, y));
+                }
+
+                ingredients[i].text[3].text = (--ingredients[i].countInt).ToString();
+            }
+
         }
     }
 

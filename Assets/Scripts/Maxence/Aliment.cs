@@ -8,5 +8,14 @@ public class Aliment : MonoBehaviour
     {
         Debug.Log("touch");
         AlimentsChoiceSpawner.instance.AttributionIngredients();
+
+        if (collision.gameObject.tag == "sandwich" && gameObject.tag != "sandwich")
+        {
+            SandwichManager.instance.AddIngredient(gameObject);
+            gameObject.tag = "sandwich";
+        }
+        else if (collision.gameObject.tag == "Untagged")
+            SandwichManager.instance.RemoveIngredient(gameObject);
+
     }
 }
