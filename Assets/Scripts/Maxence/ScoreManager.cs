@@ -23,5 +23,13 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
         }
+
+        combo = 1f;
+    }
+
+    private void Update()
+    {
+        scoreText.text = "SCORE : " + score;
+        comboText.text = "COMBO : x" + combo;
     }
 }

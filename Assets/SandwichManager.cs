@@ -6,6 +6,9 @@ public class SandwichManager : MonoBehaviour
 {
     public static SandwichManager instance;
 
+    [HideInInspector]
+    public int comboIngredients = 0;
+
     public List<GameObject> sandwich;
 
     private void Awake()
@@ -21,6 +24,9 @@ public class SandwichManager : MonoBehaviour
         sandwich.Remove(fall);
         fall.tag = "Untagged";
         OrderManager.instance.CheckFallOrder(fall);
+
+        ScoreManager.instance.combo = 1f;
+        comboIngredients = 0;
     }
 
     public void AddIngredient(GameObject up)
@@ -28,6 +34,17 @@ public class SandwichManager : MonoBehaviour
         sandwich.Add(up);
         up.tag = "sandwich";
         OrderManager.instance.CheckNewOrded(up);
+
+        AlimentsChoiceSpawner.instance.lastAlimentDrop = up;
+        ScoreManager.instance.score += (up.GetComponent<Aliment>().points * ScoreManager.instance.combo);
+
+        if (comboIngredients < 4)
+            comboIngredients++;
+        else
+        {
+            comboIngredients = 0;
+            ScoreManager.instance.combo += 0.5f;
+        }
     }
 
 

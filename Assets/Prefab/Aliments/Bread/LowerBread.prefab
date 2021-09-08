@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8398043935925365891}
   m_Layer: 0
   m_Name: LowerBread
-  m_TagString: Untagged
+  m_TagString: sandwich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
