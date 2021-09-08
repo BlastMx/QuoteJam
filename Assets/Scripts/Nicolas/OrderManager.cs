@@ -54,36 +54,7 @@ public class OrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < nIngredient; i++)
-            {
-                if(ingredients[i].ordredInt > ingredients[i].countInt)
-                    ingredients[i].text[3].text = (++ingredients[i].countInt).ToString();
 
-                if (ingredients[i].ordredInt == ingredients[i].countInt)
-                {
-                    for (int y = 0; y < ingredients[i].text.Length; y++)
-                        ingredients[i].text[y].color = Color.green;
-
-                    ingredients[i].valid = true;
-                }
-            }
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            for (int i = 0; i < nIngredient; i++)
-            {               
-                if (ingredients[i].ordredInt == ingredients[i].countInt)
-                {
-                    for (int y = 0; y < ingredients[i].text.Length; y++)
-                        StartCoroutine(SwitchColor(i, y));
-                }
-
-                ingredients[i].text[3].text = (--ingredients[i].countInt).ToString();
-            }
-        }
     }
 
     public void CheckNewOrded(GameObject check)
