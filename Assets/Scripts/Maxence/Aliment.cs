@@ -37,6 +37,11 @@ public class Aliment : enumIngredients
                 StartCoroutine(DestroyObject());
             }
         }
+            if(TimerManager.instance.reset)
+            {
+                TimerManager.instance.reset = false;
+                TimerManager.instance.TimeLess(TimerManager.instance.timeLess);
+            }
     }
 
     void AfterCollisionImpact()
