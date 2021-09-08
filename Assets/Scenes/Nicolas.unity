@@ -521,7 +521,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboIngredients: 0
-  sandwich: []
+  sandwich:
+  - {fileID: 1409120439}
 --- !u!4 &348377954
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,6 +1360,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1409120439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5979686890389289544, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
+  m_PrefabInstance: {fileID: 1687338604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1457969371 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4578911003577709247, guid: 2483ade7aa4c0de4db594dfc814bb1af, type: 3}
@@ -1800,6 +1806,18 @@ PrefabInstance:
     - target: {fileID: 5979686890389289544, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
       propertyPath: m_TagString
       value: sandwich
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398043935925365891, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398043935925365891, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398043935925365891, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}

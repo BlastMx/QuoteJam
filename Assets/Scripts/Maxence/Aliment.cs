@@ -19,7 +19,6 @@ public class Aliment : enumIngredients
     private void Update()
     {
         AfterCollisionImpact();
-        Debug.Log(gameObject.name + " " + move);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,10 +31,11 @@ public class Aliment : enumIngredients
         {
             gameObject.tag = "Untagged";
 
-            if(alreadyFallen)
+            if (alreadyFallen)
+            {
                 SandwichManager.instance.RemoveIngredient(gameObject);
-
-            StartCoroutine(DestroyObject());
+                StartCoroutine(DestroyObject());
+            }
         }
     }
 
@@ -53,7 +53,14 @@ public class Aliment : enumIngredients
             else if (gameObject.CompareTag("Untagged"))
             {
                 SandwichManager.instance.RemoveIngredient(gameObject);
+
+                if (ingredientsDisponible == IngredientsDisponible.Salade)
+                    ScoreManager.instance.score += (points * ScoreManager.instance.combo);
+
+                StartCoroutine(DestroyObject());
             }
+
+            GetComponent<BoxCollider>().material = null;
 
             AlimentsChoiceSpawner.instance.AttributionIngredients();
         }

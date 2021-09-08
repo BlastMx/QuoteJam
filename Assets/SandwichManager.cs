@@ -25,8 +25,11 @@ public class SandwichManager : MonoBehaviour
         fall.tag = "Untagged";
         OrderManager.instance.CheckFallOrder(fall);
 
-        ScoreManager.instance.combo = 1f;
-        comboIngredients = 0;
+        if (fall.GetComponent<Aliment>().ingredientsDisponible != enumIngredients.IngredientsDisponible.Salade)
+        {
+            ScoreManager.instance.combo = 1f;
+            comboIngredients = 0;
+        }
     }
 
     public void AddIngredient(GameObject up)
@@ -36,16 +39,18 @@ public class SandwichManager : MonoBehaviour
         OrderManager.instance.CheckNewOrded(up);
 
         AlimentsChoiceSpawner.instance.lastAlimentDrop = up;
-        ScoreManager.instance.score += (up.GetComponent<Aliment>().points * ScoreManager.instance.combo);
-
-        if (comboIngredients < 4)
-            comboIngredients++;
-        else
+        
+        if(up.GetComponent<Aliment>().ingredientsDisponible != enumIngredients.IngredientsDisponible.Salade)
         {
-            comboIngredients = 0;
-            ScoreManager.instance.combo += 0.5f;
+            ScoreManager.instance.score += (up.GetComponent<Aliment>().points * ScoreManager.instance.combo);
+
+            if (comboIngredients < 4)
+                comboIngredients++;
+            else
+            {
+                comboIngredients = 0;
+                ScoreManager.instance.combo += 0.5f;
+            }
         }
     }
-
-
 }
