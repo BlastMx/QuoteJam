@@ -13,6 +13,10 @@ public class OrderManager : MonoBehaviour
     [Header("count ordred")]
     public int min;
     public int max;
+
+    [Header("time switch color")]
+    public float time;
+
     int nIngredient;
     
     // Start is called before the first frame update
@@ -25,7 +29,7 @@ public class OrderManager : MonoBehaviour
             ingredientOnOff[i].SetActive(true); 
 
             int randomIngrediant = Random.Range(0, ingredientName.Count);
-            ingredients[i].name = ingredientName[randomIngrediant];
+            ingredients[i].name = ingredientName[randomIngrediant] + " :";
             ingredientName.RemoveAt(randomIngrediant);
             ingredients[i].text[0].text = ingredients[i].name;
 
@@ -33,11 +37,6 @@ public class OrderManager : MonoBehaviour
             ingredients[i].text[1].text = ingredients[i].ordredInt.ToString();
             ingredients[i].countInt = 0;
 
-            if (ingredients[i].ordredInt == ingredients[i].countInt)
-            {
-                for (int y = 0; y < ingredients[i].text.Length; y++)
-                    ingredients[i].text[y].color = Color.green;
-            }
         }
     }
 
@@ -55,12 +54,36 @@ public class OrderManager : MonoBehaviour
                 {
                     for (int y = 0; y < ingredients[i].text.Length; y++)
                         ingredients[i].text[y].color = Color.green;
+
+                    ingredients[i].valid = true;
                 }
             }
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            for (int i = 0; i < nIngredient; i++)
+            {               
+                if (ingredients[i].ordredInt == ingredients[i].countInt)
+                {
+                    for (int y = 0; y < ingredients[i].text.Length; y++)
+                        StartCoroutine(SwitchColor(i, y));
+                }
+
+                ingredients[i].text[3].text = (--ingredients[i].countInt).ToString();
+            }
+        }
+    }
+
+    public IEnumerator SwitchColor(int i,int y)
+    {
+        ingredients[i].text[y].color = Color.red;
+        yield return new WaitForSeconds(time);
+        ingredients[i].text[y].color = Color.black;
     }
 }
+
+
 
 [System.Serializable]
 public struct ingredient
@@ -69,4 +92,5 @@ public struct ingredient
     public Text[] text;
     public int ordredInt;
     public int countInt;
+    public bool valid;
 }
