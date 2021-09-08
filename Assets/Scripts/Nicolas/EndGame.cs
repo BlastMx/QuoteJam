@@ -1,23 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
     public GameObject breadTop;
 
     [Header("panel win/lose")]
+    public GameObject winLosePanel;
     public GameObject winPanel;
     public GameObject losePanel;
     GameObject bread;
 
-    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -30,16 +26,28 @@ public class EndGame : MonoBehaviour
             else
                 bread = Instantiate(breadTop, new Vector3(GameObject.Find("LowerBread").transform.position.x, GameObject.Find("WaypointsParent").transform.position.y, GameObject.Find("LowerBread").transform.position.z), Quaternion.identity);
         }
-        else if(UpperBread.instance.stop)
+        if(bread!=null)
         {
-            for (int i = 0; i<OrderManager.instance.ingredients.Length;i++)
+            if(UpperBread.instance.stop)
             {
-                if (!OrderManager.instance.ingredients[i].valid)
-                    losePanel.SetActive(true);
+                winLosePanel.SetActive(true);
+
+                for (int i = 0; i<OrderManager.instance.ingredients.Length;i++)
+                {
+                    if (!OrderManager.instance.ingredients[i].valid)
+                        losePanel.SetActive(true);
+                }
+                if (!losePanel.active)
+                    winPanel.SetActive(true);
+
             }
-            if (!losePanel.active)
-                winPanel.SetActive(true);
         }
 
+
+    }
+
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
