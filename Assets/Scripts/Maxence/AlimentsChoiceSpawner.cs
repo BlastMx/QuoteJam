@@ -44,7 +44,7 @@ public class AlimentsChoiceSpawner : MonoBehaviour
             ChooseAliments();
     }
 
-    void AttributionIngredients()
+    public void AttributionIngredients()
     {
         SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(0, 0.5f).OnComplete(()=> {
 
@@ -53,6 +53,8 @@ public class AlimentsChoiceSpawner : MonoBehaviour
                 aliment.AttributionIngredient();
 
             gameObject.GetComponent<CanvasGroup>().DOFade(1, 1f);
+
+            canChooseAliments = true;
 
         });
     }
