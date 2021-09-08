@@ -16,7 +16,8 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     public List<GameObject> prefabsAliments = new List<GameObject>();
 
-    public GameObject currentAliment;
+    [HideInInspector]
+    public GameObject currentAliment, lastAlimentDrop;
 
     public static AlimentsChoiceSpawner instance;
 
@@ -61,19 +62,19 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     void ChooseAliments()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             AlimentChosen(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             AlimentChosen(1);
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.U))
         {
             AlimentChosen(2);
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.I))
         {
             AlimentChosen(3);
         }
