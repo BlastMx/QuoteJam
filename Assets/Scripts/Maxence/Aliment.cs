@@ -13,7 +13,16 @@ public class Aliment : MonoBehaviour
         Debug.Log("touch");
         AlimentsChoiceSpawner.instance.AttributionIngredients();
 
-        /* Si touche élément du sandwich
+        if (collision.gameObject.tag == "sandwich" && gameObject.tag != "sandwich")
+        {
+            SandwichManager.instance.AddIngredient(gameObject);
+            gameObject.tag = "sandwich";
+        }
+        else if (collision.gameObject.tag == "Untagged")
+            SandwichManager.instance.RemoveIngredient(gameObject);
+
+
+        /* Si touche ï¿½lï¿½ment du sandwich
          * AlimentsChoiceSpawner.instance.lastAlimentDrop = gameObject;
          * ScoreManager.instance.score = ScoreManager.instance.score + (points * ScoreManager.instance.combo);
          */
