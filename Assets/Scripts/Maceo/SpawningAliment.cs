@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SpawningAliment : MonoBehaviour
 {
-    private int moveCount;
 
     public Transform arrow;
-    public CameraFollow cameraScript;
 
     public static SpawningAliment instance;
     void Awake()
@@ -40,21 +38,7 @@ public class SpawningAliment : MonoBehaviour
 
             aliment.transform.position = arrow.position;
             aliment.SetActive(true);
-            MoveCamera();
         }
 
-    }
-
-
-    public void MoveCamera()
-    {
-        moveCount++;
-
-
-        if (moveCount == 5)
-        {
-            moveCount = 0;
-            cameraScript.targetPos.y += 2f;
-        }
     }
 }

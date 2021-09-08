@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 849910942}
-  cameraScript: {fileID: 963194229}
 --- !u!1 &122007010
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +381,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -423,7 +421,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -455,19 +453,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03eb9317ac30734db82b9c5acd54051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1018432891
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,11 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7015310437710487385, guid: 2483ade7aa4c0de4db594dfc814bb1af, type: 3}
       propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015310437710487385, guid: 2483ade7aa4c0de4db594dfc814bb1af, type: 3}
-      propertyPath: timeBetweenEvent
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7015310438307615871, guid: 2483ade7aa4c0de4db594dfc814bb1af, type: 3}
       propertyPath: m_AnchorMax.y
