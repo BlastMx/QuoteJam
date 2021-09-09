@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 236199068457778802}
   - component: {fileID: 7240820624131021269}
   m_Layer: 0
-  m_Name: MiddleBread
+  m_Name: Pain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
