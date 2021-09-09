@@ -28,11 +28,8 @@ public class ParticleManager : MonoBehaviour
             if (particleName[i] == nameParticle)
             {
                 particleSystems[i].Play();
-                //pour positioner devant le burger
-                postitionOnScreen.z -= 1.55f;
-                particleSystems[i].transform.position = postitionOnScreen;
 
-               
+                particleSystems[i].transform.position = postitionOnScreen;
             }
         }
     }
