@@ -970,9 +970,11 @@ MonoBehaviour:
   particleSystems:
   - {fileID: 1842673359}
   - {fileID: 1779252987}
+  - {fileID: 809025108656405214}
   particleName:
   - StarSpark
   - Halo
+  - StarSpark2
 --- !u!4 &736634073
 Transform:
   m_ObjectHideFlags: 0
@@ -986,6 +988,7 @@ Transform:
   m_Children:
   - {fileID: 1779252988}
   - {fileID: 1842673360}
+  - {fileID: 809025108656405215}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2593,3 +2596,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097355669}
   m_CullTransparentMesh: 1
+--- !u!1001 &809025108656405213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 736634073}
+    m_Modifications:
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0026355113
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468678022635103808, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+      propertyPath: m_Name
+      value: StarSpark2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+--- !u!198 &809025108656405214 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5091222928833647221, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+  m_PrefabInstance: {fileID: 809025108656405213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &809025108656405215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1829179312373279013, guid: a7112f27c1e6c37468cfb6c76162e5a8, type: 3}
+  m_PrefabInstance: {fileID: 809025108656405213}
+  m_PrefabAsset: {fileID: 0}
