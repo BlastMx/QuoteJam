@@ -8,6 +8,7 @@ public class SandwichManager : MonoBehaviour
 
     [HideInInspector]
     public int comboIngredients = 0;
+    public int numberCombo = 0;
 
     public CameraFollow cameraScript;
 
@@ -33,6 +34,7 @@ public class SandwichManager : MonoBehaviour
         {
             ScoreManager.instance.combo = 1f;
             comboIngredients = 0;
+            numberCombo = 0;
         }
     }
 
@@ -58,6 +60,7 @@ public class SandwichManager : MonoBehaviour
             {
                 ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
+                numberCombo = 0;
 
                 foreach(GameObject aliment in sandwich)
                 {
@@ -68,24 +71,54 @@ public class SandwichManager : MonoBehaviour
             }
             else
             {
-
-                if (comboIngredients < 4)
+                if (comboIngredients < 2)
                     comboIngredients++;
                 else
                 {
+                    numberCombo++;
                     comboIngredients = 0;
                     ScoreManager.instance.combo += 0.5f;
-					 ScoreManager.instance.combo += 0.5f;
-					Vector3 pos = up.transform.position;
-					//pour positioner devant le burger
-					pos.z -= 1.55f;
-					ParticleManager.instance.StartParticle("StarSpark", pos);
+
+                    Vector3 pos = up.transform.position;
+                    //pour positioner devant le burger
+                    pos.z -= 1.55f;
+                    int starnb = Random.Range(0, 2);
+                    Debug.Log(starnb);
+                    ParticleManager.instance.StartParticle("StarSpark" + starnb, pos);
+                    ComboIncreasing();
                 }
             }
 
         }
-
         MoveCamera();
+    }
+
+    public void ComboIncreasing()
+    {
+        switch (numberCombo)
+        {
+            case 1:
+                SoundManager.instance.source.clip = SoundManager.instance.delicieux;
+                SoundManager.instance.source.Play();
+                break;
+            case 2:
+                SoundManager.instance.source.clip = SoundManager.instance.goutu;
+                SoundManager.instance.source.Play();
+                break;
+            case 3:
+                SoundManager.instance.source.clip = SoundManager.instance.semiCroustillant;
+                SoundManager.instance.source.Play();
+                break;
+            case 4:
+                SoundManager.instance.source.clip = SoundManager.instance.delicat;
+                SoundManager.instance.source.Play();
+                break;
+            case 5:
+                SoundManager.instance.source.clip = SoundManager.instance.smoothy;
+                SoundManager.instance.source.Play();
+                break;
+            default: break;
+        }
     }
 
     public void MoveCamera()

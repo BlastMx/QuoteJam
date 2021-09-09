@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6698743829163703289}
   - component: {fileID: 4209471933161589001}
   m_Layer: 10
-  m_Name: StarSpark
+  m_Name: StarSpark0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
