@@ -17,7 +17,7 @@ public class OrderManager : MonoBehaviour
     [Header("time switch color")]
     public float time;
 
-    int nIngredient;
+     public int nIngredient;
 
 
     public static OrderManager instance;
@@ -81,6 +81,7 @@ public class OrderManager : MonoBehaviour
                 {
                     for (int y = 0; y < ingredients[i].text.Length; y++)
                         StartCoroutine(SwitchColor(i, y));
+                    ingredients[i].valid = false;
                 }
 
                 if(ingredients[i].countInt > 0)

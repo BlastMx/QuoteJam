@@ -19,6 +19,10 @@ public class AlimentsChoiceSpawner : MonoBehaviour
     [HideInInspector]
     public GameObject currentAliment, lastAlimentDrop;
 
+    public GameObject middleBread;
+
+    public int[] table = { 70, 30 };
+
     public static AlimentsChoiceSpawner instance;
 
     void Awake()
@@ -85,8 +89,6 @@ public class AlimentsChoiceSpawner : MonoBehaviour
         canChooseAliments = false;
 
         currentAliment = alimentChoices[value].aliment;
-        //prochain aliment devient celui-ci
-        Debug.Log(currentAliment.name);
 
         gameObject.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(()=> {
             SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(1, 0.5f);

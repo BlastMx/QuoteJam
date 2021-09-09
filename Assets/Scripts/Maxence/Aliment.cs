@@ -37,16 +37,11 @@ public class Aliment : enumIngredients
                 StartCoroutine(DestroyObject());
             }
         }
-            if(TimerManager.instance.reset)
-            {
-                TimerManager.instance.reset = false;
-                TimerManager.instance.TimeLess(TimerManager.instance.timeLess);
-            }
     }
 
     void AfterCollisionImpact()
     {
-        if (rigidbodyAliment.IsSleeping() && move)
+        if ((rigidbodyAliment.IsSleeping() && move))
         {
             move = false;
             alreadyFallen = true;
@@ -61,6 +56,12 @@ public class Aliment : enumIngredients
 
                 if (ingredientsDisponible == IngredientsDisponible.Salade)
                     ScoreManager.instance.score += (points * ScoreManager.instance.combo);
+
+                if (TimerManager.instance.reset)
+                {
+                    TimerManager.instance.reset = false;
+                    TimerManager.instance.TimeLess(TimerManager.instance.timeLess);
+                }
 
                 StartCoroutine(DestroyObject());
             }
