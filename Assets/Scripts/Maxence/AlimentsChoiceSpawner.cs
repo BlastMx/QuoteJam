@@ -51,8 +51,24 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     public void AttributionIngredients()
     {
+        int nbMiddleBread = 0;
         foreach (AlimentChoice aliment in alimentChoices)
+        {
             aliment.AttributionIngredient();
+
+            if(aliment.aliment == middleBread)
+            {
+                nbMiddleBread++;
+            }
+        }
+
+        if (nbMiddleBread == 4)
+        {
+            int randomAlimentChoice = Random.Range(0, prefabsAliments.Count);
+            int randomPrefabAliment = Random.Range(0, prefabsAliments.Count);
+            alimentChoices[randomAlimentChoice].aliment = prefabsAliments[randomPrefabAliment];
+            alimentChoices[randomAlimentChoice].alimentName.text = prefabsAliments[randomPrefabAliment].name;
+        }
 
         canChooseAliments = true;
         canLandAliments = true;

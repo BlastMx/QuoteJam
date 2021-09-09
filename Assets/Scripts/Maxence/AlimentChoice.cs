@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AlimentChoice : MonoBehaviour
 {
-    [SerializeField] private Text alimentName;
+    [SerializeField] public Text alimentName;
     public GameObject aliment;
 
     public void AttributionIngredient()
