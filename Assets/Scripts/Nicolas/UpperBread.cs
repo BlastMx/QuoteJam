@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpperBread : MonoBehaviour
 {
     Vector3 set;
-    public bool stop;
+    public bool stop = false;
 
     public static UpperBread instance;
 
