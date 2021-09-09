@@ -50,13 +50,13 @@ public class SandwichManager : MonoBehaviour
 
             if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
             {
-
                 ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
 
                 foreach(GameObject aliment in sandwich)
                 {
-                    aliment.GetComponent<Rigidbody>().isKinematic = true;
+                    Rigidbody rigidbody = aliment.GetComponent<Rigidbody>();
+                    rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
                 }
             }

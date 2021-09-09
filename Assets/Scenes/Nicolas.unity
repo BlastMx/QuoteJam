@@ -1140,6 +1140,7 @@ MonoBehaviour:
   min: 1
   max: 5
   time: 0.5
+  nIngredient: 0
 --- !u!4 &1204433485
 Transform:
   m_ObjectHideFlags: 0
@@ -1935,18 +1936,6 @@ PrefabInstance:
     - target: {fileID: 5979686890389289396, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979686890389289396, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.2328
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979686890389289396, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.87858385
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979686890389289396, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.0516
       objectReference: {fileID: 0}
     - target: {fileID: 5979686890389289396, guid: 5888cf5ba2c76f84d87f03c200e391d1, type: 3}
       propertyPath: m_LocalPosition.x
