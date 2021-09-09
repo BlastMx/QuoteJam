@@ -52,6 +52,7 @@ public class EndGame : MonoBehaviour
                         if (!losePanel.active)
                             winPanel.SetActive(true);
 
+                        Menu.instance.WinLosePanel.blocksRaycasts = true;
                     }
                 });
             });

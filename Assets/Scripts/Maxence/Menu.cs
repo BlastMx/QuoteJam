@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class Menu : MonoBehaviour
                 UiGame.DOFade(1, 1f);
                 orderPanel.DOFade(1, 1f);
 
+                PanelMenu.blocksRaycasts = false;
+
                 SandwichManager.instance.UpFork();
                 OrderManager.instance.StartOrder();
             });
@@ -69,5 +72,10 @@ public class Menu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
