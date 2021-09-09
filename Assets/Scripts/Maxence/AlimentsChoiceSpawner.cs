@@ -24,8 +24,6 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     public GameObject middleBread;
 
-    public int[] table = { 70, 30 };
-
     public static AlimentsChoiceSpawner instance;
 
     void Awake()

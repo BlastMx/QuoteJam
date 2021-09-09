@@ -50,6 +50,12 @@ public class SandwichManager : MonoBehaviour
 
             if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
             {
+                Rigidbody rigidbody = up.GetComponent<Rigidbody>();
+                rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            }
+
+            if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
+            {
                 ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
 
