@@ -50,13 +50,13 @@ public class SandwichManager : MonoBehaviour
 
             if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
             {
-
                 ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
 
                 foreach(GameObject aliment in sandwich)
                 {
-                    aliment.GetComponent<Rigidbody>().isKinematic = true;
+                    Rigidbody rigidbody = aliment.GetComponent<Rigidbody>();
+                    rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
                 }
             }
@@ -69,6 +69,11 @@ public class SandwichManager : MonoBehaviour
                 {
                     comboIngredients = 0;
                     ScoreManager.instance.combo += 0.5f;
+					 ScoreManager.instance.combo += 0.5f;
+					Vector3 pos = up.transform.position;
+					//pour positioner devant le burger
+					pos.z -= 1.55f;
+					ParticleManager.instance.StartParticle("StarSpark", pos);
                 }
             }
 
@@ -79,6 +84,6 @@ public class SandwichManager : MonoBehaviour
 
     public void MoveCamera()
     {
-        cameraScript.targetPos.y = sandwich[sandwich.Count - 1].transform.position.y - sandwich[0].transform.position.y;
+        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y / 2;
     }
 }

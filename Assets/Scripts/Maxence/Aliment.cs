@@ -6,10 +6,12 @@ public class Aliment : enumIngredients
 {
     public float points = 0f;
 
-    [SerializeField] private Rigidbody rigidbodyAliment;
+    public Rigidbody rigidbodyAliment;
 
     private bool move = true;
     private bool alreadyFallen = false;
+
+    private float moveTimeP = 0;
 
     private void Awake()
     {
@@ -19,10 +21,12 @@ public class Aliment : enumIngredients
     private void Update()
     {
         AfterCollisionImpact();
+        StopMove();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "sandwich" && gameObject.tag != "sandwich")
         {
             gameObject.tag = "sandwich";
@@ -66,10 +70,21 @@ public class Aliment : enumIngredients
                 StartCoroutine(DestroyObject());
             }
 
-            GetComponent<BoxCollider>().material = null;
-
             AlimentsChoiceSpawner.instance.AttributionIngredients();
         }
+    }
+
+    void StopMove()
+    {
+        if(move && gameObject.tag == "sandwich")
+        {
+            if (moveTimeP < 1f)
+                moveTimeP += Time.deltaTime;
+            else
+                rigidbodyAliment.isKinematic = true;
+        }
+        else
+            rigidbodyAliment.isKinematic = false;
     }
 
     IEnumerator DestroyObject()
