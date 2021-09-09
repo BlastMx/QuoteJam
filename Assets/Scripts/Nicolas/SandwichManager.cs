@@ -48,37 +48,20 @@ public class SandwichManager : MonoBehaviour
         {
             ScoreManager.instance.score += (up.GetComponent<Aliment>().points * ScoreManager.instance.combo);
 
-            if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
-            {
-                ScoreManager.instance.combo = 1f;
-                comboIngredients = 0;
-
-                foreach(GameObject aliment in sandwich)
-                {
-                    Rigidbody rigidbody = aliment.GetComponent<Rigidbody>();
-                    rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-
-                }
-            }
+            if (comboIngredients < 4)
+                comboIngredients++;
             else
             {
-
-                if (comboIngredients < 4)
-                    comboIngredients++;
-                else
-                {
-                    comboIngredients = 0;
-                    ScoreManager.instance.combo += 0.5f;
-                }
+                comboIngredients = 0;
+                ScoreManager.instance.combo += 0.5f;
             }
-
+            ParticleManager.instance.StartParticle("StarSpark", up.transform.position);
         }
-
         MoveCamera();
     }
 
     public void MoveCamera()
     {
-        cameraScript.targetPos.y = sandwich[sandwich.Count - 1].transform.position.y - sandwich[0].transform.position.y;
+        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y;
     }
 }
