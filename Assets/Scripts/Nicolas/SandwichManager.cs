@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,8 +86,9 @@ public class SandwichManager : MonoBehaviour
                     Vector3 pos = up.transform.position;
                     //pour positioner devant le burger
                     pos.z -= 1.55f;
+
                     int starnb = Random.Range(0, 2);
-                    Debug.Log(starnb);
+
                     ParticleManager.instance.StartParticle("StarSpark" + starnb, pos);
                     ComboIncreasing();
                 }
