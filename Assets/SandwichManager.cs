@@ -54,11 +54,11 @@ public class SandwichManager : MonoBehaviour
             {
                 comboIngredients = 0;
                 ScoreManager.instance.combo += 0.5f;
+                Vector3 pos = up.transform.position;
+                //pour positioner devant le burger
+                pos.z -= 1.55f;
+                ParticleManager.instance.StartParticle("StarSpark", pos);
             }
-            Vector3 pos = up.transform.position;
-            //pour positioner devant le burger
-            pos.z -= 1.55f;
-            ParticleManager.instance.StartParticle("StarSpark", pos);
         }
         MoveCamera();
     }
