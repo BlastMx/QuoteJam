@@ -84,6 +84,6 @@ public class SandwichManager : MonoBehaviour
 
     public void MoveCamera()
     {
-        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y;
+        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y / 2;
     }
 }
