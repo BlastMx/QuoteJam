@@ -45,7 +45,8 @@ public class OrderManager : MonoBehaviour
             ingredients[i].text[0].text = ingredients[i].name + " :";
 
             ingredients[i].ordredInt = Random.Range(min, max + 1);
-            ingredients[i].text[1].text = ingredients[i].ordredInt.ToString();
+            ingredients[i].text[3].text = ingredients[i].ordredInt.ToString();
+            ingredients[i].text[1].text = "0";
             ingredients[i].countInt = 0;
 
         }
@@ -58,7 +59,7 @@ public class OrderManager : MonoBehaviour
             if(ingredients[i].name+"(Clone)" == check.name)
             {
                 if (ingredients[i].ordredInt > ingredients[i].countInt)
-                    ingredients[i].text[3].text = (++ingredients[i].countInt).ToString();
+                    ingredients[i].text[1].text = (++ingredients[i].countInt).ToString();
 
                 if (ingredients[i].ordredInt == ingredients[i].countInt)
                 {
@@ -85,7 +86,7 @@ public class OrderManager : MonoBehaviour
                 }
 
                 if(ingredients[i].countInt > 0)
-                    ingredients[i].text[3].text = (--ingredients[i].countInt).ToString();
+                    ingredients[i].text[1].text = (--ingredients[i].countInt).ToString();
             }
 
         }

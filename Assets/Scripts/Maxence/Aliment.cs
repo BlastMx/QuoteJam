@@ -11,6 +11,8 @@ public class Aliment : enumIngredients
     private bool move = true;
     private bool alreadyFallen = false;
 
+    private float moveTimeP = 0;
+
     private void Awake()
     {
         rigidbodyAliment = GetComponent<Rigidbody>();
@@ -19,6 +21,7 @@ public class Aliment : enumIngredients
     private void Update()
     {
         AfterCollisionImpact();
+        StopMove();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -70,6 +73,19 @@ public class Aliment : enumIngredients
 
             AlimentsChoiceSpawner.instance.AttributionIngredients();
         }
+    }
+
+    void StopMove()
+    {
+        if(move && gameObject.tag == "sandwich")
+        {
+            if (moveTimeP < 1f)
+                moveTimeP += Time.deltaTime;
+            else
+                rigidbodyAliment.isKinematic = true;
+        }
+        else
+            rigidbodyAliment.isKinematic = false;
     }
 
     IEnumerator DestroyObject()
