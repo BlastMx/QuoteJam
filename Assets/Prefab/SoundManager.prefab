@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7058937587071763441
+--- !u!1 &4994682504632965813
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7058937587071763446}
-  - component: {fileID: 7058937587071763447}
-  - component: {fileID: 7058937587071763440}
+  - component: {fileID: 4994682504632965810}
+  - component: {fileID: 4994682504632965811}
+  - component: {fileID: 4994682504632965812}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7058937587071763446
+--- !u!4 &4994682504632965810
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058937587071763441}
+  m_GameObject: {fileID: 4994682504632965813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.0453186, y: 0.45982653, z: -10.411204}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,19 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7058937587071763447
+--- !u!114 &4994682504632965811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058937587071763441}
+  m_GameObject: {fileID: 4994682504632965813}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c0034ab61b0adf40af2f824ec18bacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 7058937587071763440}
+  source: {fileID: 4994682504632965812}
   ambiance: {fileID: 0}
   combo: {fileID: 8300000, guid: ca988da6f5a8c5445b2c89e73f7babe3, type: 3}
   smoothy: {fileID: 8300000, guid: c6b4aee16cc1b8044b6108bfc103a28a, type: 3}
@@ -59,22 +59,27 @@ MonoBehaviour:
   beurre: {fileID: 8300000, guid: d1664a815b1c6ac439a938ac0a8aa04c, type: 3}
   saucicsse: {fileID: 8300000, guid: 416616423b65e4248bd453376d35af08, type: 3}
   jambon: {fileID: 8300000, guid: f2f4aeeb62fc6eb4f8b62c1868597344, type: 3}
-  fall: {fileID: 0}
-  heureDePointe: {fileID: 0}
+  fall1: {fileID: 8300000, guid: f7c6fb75e18bd5a4fbaf6a4d3b477a7b, type: 3}
+  fall2: {fileID: 8300000, guid: a50eee04e5a752244a037c2fe3f34b53, type: 3}
+  fall3: {fileID: 8300000, guid: c3bfdfbf83f3d714b9a777689a65385d, type: 3}
+  heureDePointe1: {fileID: 8300000, guid: c3a1f6d6620a84542bc699465dfcac02, type: 3}
+  heureDePointe2: {fileID: 8300000, guid: bb7eb9c43dafe9c4c83c060c30366575, type: 3}
+  heureDePointe3: {fileID: 8300000, guid: f81fc04748c84654295dda44c3d99400, type: 3}
   paysDeGalleIndependant: {fileID: 8300000, guid: 9c29833f6ffc30247a77f9eeaa9180b5, type: 3}
   chef: {fileID: 0}
-  crampe: {fileID: 0}
+  crampe1: {fileID: 8300000, guid: 144c6007b585fb6469200a83200ebff9, type: 3}
+  crampe2: {fileID: 8300000, guid: 0ab262ca7eb402847861425de8ee8c91, type: 3}
   comcombre: {fileID: 0}
   win: {fileID: 0}
   lose: {fileID: 0}
   timer: {fileID: 0}
---- !u!82 &7058937587071763440
+--- !u!82 &4994682504632965812
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058937587071763441}
+  m_GameObject: {fileID: 4994682504632965813}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}

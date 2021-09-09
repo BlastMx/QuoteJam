@@ -98,9 +98,9 @@ public class SandwichManager : MonoBehaviour
         UpFork();
     }
 
-    private void UpFork()
+    public void UpFork()
     {
-        forkWayPoints.DOMoveY(sandwich[sandwich.Count - 1].transform.position.y + 5f, 0.5f);
+        forkWayPoints.DOMoveY(sandwich[sandwich.Count - 1].transform.position.y + 1f, 0.5f);
     }
 
     public void ComboIncreasing()
@@ -133,8 +133,8 @@ public class SandwichManager : MonoBehaviour
 
     public void MoveCamera()
     {
-        cameraScript.gameObject.transform.DOMoveY(sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y / 2, 0.2f);
+        cameraScript.gameObject.transform.DOMoveY(cameraScript.gameObject.transform.position.y + 0.05f, 0.2f);
 
-        cameraScript.gameObject.transform.DOMoveZ(cameraScript.gameObject.transform.position.z - 0.2f, 0.2f);
+        cameraScript.gameObject.transform.DOMoveZ(cameraScript.gameObject.transform.position.z + 0.05f, 0.2f);
     }
 }

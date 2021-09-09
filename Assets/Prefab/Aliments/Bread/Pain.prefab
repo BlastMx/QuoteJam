@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5979686890389289544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.348, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   ingredientsDisponible: 4
   points: 0
   rigidbodyAliment: {fileID: 8398043935925365891}
+  icon: {fileID: 21300000, guid: b8fa5de645a13114d960206aac2d8963, type: 3}
 --- !u!64 &7240820624131021269
 MeshCollider:
   m_ObjectHideFlags: 0

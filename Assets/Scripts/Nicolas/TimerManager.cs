@@ -33,6 +33,9 @@ public class TimerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Menu.instance.onMenu)
+            return;
+
         if(timer>0)
         {
             TimeLess(Time.deltaTime);

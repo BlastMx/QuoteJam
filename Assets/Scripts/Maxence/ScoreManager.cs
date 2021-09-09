@@ -29,6 +29,9 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
+        if (Menu.instance.onMenu)
+            return;
+
         scoreText.text = "SCORE : " + score;
         comboText.text = "COMBO : x" + combo;
     }

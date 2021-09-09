@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AlimentChoice : MonoBehaviour
 {
-    [SerializeField] public Text alimentName;
+    public Image icon;
     public GameObject aliment;
 
     public void AttributionIngredient()
@@ -19,12 +19,10 @@ public class AlimentChoice : MonoBehaviour
             int value = Random.Range(0, alimentsChoice.prefabsAliments.Count);
 
             aliment = alimentsChoice.prefabsAliments[value];
-            alimentName.text = aliment.name;
         }
         else
-        {
             aliment = alimentsChoice.middleBread;
-            alimentName.text = aliment.name;
-        }
+
+        icon.sprite = aliment.GetComponent<Aliment>().icon;
     }
 }

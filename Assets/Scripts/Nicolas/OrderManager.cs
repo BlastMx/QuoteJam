@@ -30,14 +30,13 @@ public class OrderManager : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartOrder()
     {
         nIngredient = Random.Range(1, 4);
 
-        for (int i = 0;i< nIngredient; i++)
+        for (int i = 0; i < nIngredient; i++)
         {
-            ingredientOnOff[i].SetActive(true); 
+            ingredientOnOff[i].SetActive(true);
 
             int randomIngrediant = Random.Range(0, ingredientName.Count);
             ingredients[i].name = ingredientName[randomIngrediant];

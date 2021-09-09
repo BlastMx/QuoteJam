@@ -46,6 +46,7 @@ public class AlimentsChoiceSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         ChooseAliments();
     }
 
@@ -67,7 +68,7 @@ public class AlimentsChoiceSpawner : MonoBehaviour
             int randomAlimentChoice = Random.Range(0, prefabsAliments.Count);
             int randomPrefabAliment = Random.Range(0, prefabsAliments.Count);
             alimentChoices[randomAlimentChoice].aliment = prefabsAliments[randomPrefabAliment];
-            alimentChoices[randomAlimentChoice].alimentName.text = prefabsAliments[randomPrefabAliment].name;
+            alimentChoices[randomAlimentChoice].icon.sprite = prefabsAliments[randomPrefabAliment].GetComponent<Aliment>().icon;
         }
 
         canChooseAliments = true;

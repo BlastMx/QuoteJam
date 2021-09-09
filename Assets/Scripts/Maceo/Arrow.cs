@@ -31,9 +31,16 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
+        if (Menu.instance.onMenu)
+            return;
+
         MoveBetweenWaypoints();
-        AccelerateEvent();
-        StopEvent();
+
+        if (!Perceval.instance.pdgIndependant)
+        {
+            AccelerateEvent();
+            StopEvent();
+        }
     }
 
     private void MoveBetweenWaypoints()

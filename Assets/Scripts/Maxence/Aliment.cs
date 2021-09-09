@@ -13,6 +13,8 @@ public class Aliment : enumIngredients
 
     private float moveTimeP = 0;
 
+    public Sprite icon;
+
     private void Awake()
     {
         rigidbodyAliment = GetComponent<Rigidbody>();
@@ -20,6 +22,9 @@ public class Aliment : enumIngredients
 
     private void Update()
     {
+        if (Menu.instance.onMenu)
+            return;
+
         AfterCollisionImpact();
         StopMove();
     }
