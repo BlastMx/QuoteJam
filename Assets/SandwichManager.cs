@@ -55,12 +55,13 @@ public class SandwichManager : MonoBehaviour
                 comboIngredients = 0;
                 ScoreManager.instance.combo += 0.5f;
             }
+            ParticleManager.instance.StartParticle("StarSpark", up.transform.position);
         }
         MoveCamera();
     }
 
     public void MoveCamera()
     {
-        cameraScript.targetPos.y = sandwich[sandwich.Count - 1].transform.position.y - sandwich[0].transform.position.y;
+        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y;
     }
 }
