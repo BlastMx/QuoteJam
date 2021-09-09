@@ -29,10 +29,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip fall;
 
     [Header("Speciaux")]
-    public AudioClip heureDePointe;
+    public AudioClip heureDePointe1;
+    public AudioClip heureDePointe2;
+    public AudioClip heureDePointe3;
     public AudioClip paysDeGalleIndependant;
     public AudioClip chef;
-    public AudioClip crampe;
+    public AudioClip crampe1;
+    public AudioClip crampe2;
     public AudioClip comcombre;
 
     [Header("End")]
