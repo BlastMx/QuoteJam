@@ -32,7 +32,7 @@ public class EndGame : MonoBehaviour
             {
                 winLosePanel.SetActive(true);
 
-                for (int i = 0; i<OrderManager.instance.ingredients.Length;i++)
+                for (int i = 0; i<OrderManager.instance.nIngredient;i++)
                 {
                     if (!OrderManager.instance.ingredients[i].valid)
                         losePanel.SetActive(true);
