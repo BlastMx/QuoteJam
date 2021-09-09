@@ -6,7 +6,7 @@ public class Aliment : enumIngredients
 {
     public float points = 0f;
 
-    [SerializeField] private Rigidbody rigidbodyAliment;
+    public Rigidbody rigidbodyAliment;
 
     private bool move = true;
     private bool alreadyFallen = false;
@@ -26,6 +26,7 @@ public class Aliment : enumIngredients
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "sandwich" && gameObject.tag != "sandwich")
         {
             gameObject.tag = "sandwich";
@@ -68,8 +69,6 @@ public class Aliment : enumIngredients
 
                 StartCoroutine(DestroyObject());
             }
-
-            GetComponent<BoxCollider>().material = null;
 
             AlimentsChoiceSpawner.instance.AttributionIngredients();
         }
