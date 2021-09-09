@@ -1291,6 +1291,8 @@ MonoBehaviour:
   - {fileID: 6502189013174931544, guid: 5239f7921d99a9d43b86de698f5f046c, type: 3}
   currentAliment: {fileID: 0}
   lastAlimentDrop: {fileID: 0}
+  middleBread: {fileID: 5979686890389289544, guid: ca520f4435221fe42bc8fb5ef096cb8a, type: 3}
+  table: 460000001e000000
 --- !u!1 &7015310438986538372
 GameObject:
   m_ObjectHideFlags: 0

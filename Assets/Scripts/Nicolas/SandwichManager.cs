@@ -48,14 +48,32 @@ public class SandwichManager : MonoBehaviour
         {
             ScoreManager.instance.score += (up.GetComponent<Aliment>().points * ScoreManager.instance.combo);
 
-            if (comboIngredients < 4)
-                comboIngredients++;
+            if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
+            {
+
+                ScoreManager.instance.combo = 1f;
+                comboIngredients = 0;
+
+                foreach(GameObject aliment in sandwich)
+                {
+                    aliment.GetComponent<Rigidbody>().isKinematic = true;
+
+                }
+            }
             else
             {
-                comboIngredients = 0;
-                ScoreManager.instance.combo += 0.5f;
+
+                if (comboIngredients < 4)
+                    comboIngredients++;
+                else
+                {
+                    comboIngredients = 0;
+                    ScoreManager.instance.combo += 0.5f;
+                }
             }
+
         }
+
         MoveCamera();
     }
 
