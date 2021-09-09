@@ -12,6 +12,9 @@ public class AlimentsChoiceSpawner : MonoBehaviour
     public bool canLandAliments = false;
 
     [SerializeField]
+    private Transform arrow;
+
+    [SerializeField]
     private List<AlimentChoice> alimentChoices = new List<AlimentChoice>();
 
     public List<GameObject> prefabsAliments = new List<GameObject>();
@@ -45,27 +48,23 @@ public class AlimentsChoiceSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canChooseAliments)
-            ChooseAliments();
+        ChooseAliments();
     }
 
     public void AttributionIngredients()
     {
-        SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(0, 0.5f).OnComplete(()=> {
+        foreach (AlimentChoice aliment in alimentChoices)
+            aliment.AttributionIngredient();
 
-            gameObject.SetActive(true);
-            foreach (AlimentChoice aliment in alimentChoices)
-                aliment.AttributionIngredient();
-
-            gameObject.GetComponent<CanvasGroup>().DOFade(1, 1f);
-
-            canChooseAliments = true;
-
-        });
+        canChooseAliments = true;
+        canLandAliments = true;
     }
 
     void ChooseAliments()
     {
+        if (!canLandAliments)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             AlimentChosen(0);
@@ -86,14 +85,16 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     void AlimentChosen(int value)
     {
+        canLandAliments = false;
         canChooseAliments = false;
 
-        currentAliment = alimentChoices[value].aliment;
+        currentAliment = alimentChoices[value].aliment; 
+        
+        GameObject aliment = Instantiate(currentAliment);
 
-        gameObject.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(()=> {
-            SpawningAliment.instance.arrow.gameObject.GetComponent<Image>().DOFade(1, 0.5f);
-            canLandAliments = true;
-            gameObject.SetActive(false);
-        });
+        aliment.transform.position = arrow.position;
+        aliment.SetActive(true);
+
+        TimerManager.instance.reset = true;
     }
 }
