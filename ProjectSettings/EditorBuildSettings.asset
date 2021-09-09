@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Nicolas.unity
+    guid: 410dca90900656e4ea88cea9293830d4
   m_configObjects: {}

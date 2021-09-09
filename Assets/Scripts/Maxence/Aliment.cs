@@ -30,9 +30,41 @@ public class Aliment : enumIngredients
         if (collision.gameObject.tag == "sandwich" && gameObject.tag != "sandwich")
         {
             gameObject.tag = "sandwich";
+
+            switch(gameObject.name)
+            {
+                case "Beurre(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.beurre, gameObject.transform.position);
+                    break;
+
+                case "Fromage(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.fromage, gameObject.transform.position);
+                    break;
+
+                case "Jambon(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.jambon, gameObject.transform.position);
+                    break;
+
+                case "Salade(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.salade, gameObject.transform.position);
+                    break;
+
+                case "Saucisse(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.saucicsse, gameObject.transform.position);
+                    break;
+
+                case "Steak(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.steak, gameObject.transform.position);
+                    break;
+
+                case "Pain(Clone)":
+                    AudioSource.PlayClipAtPoint(SoundManager.instance.pain, gameObject.transform.position);
+                    break;
+            }
         }
         else if (collision.gameObject.tag == "Untagged")
         {
+            
             gameObject.tag = "Untagged";
 
             if (alreadyFallen)
@@ -89,6 +121,21 @@ public class Aliment : enumIngredients
 
     IEnumerator DestroyObject()
     {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                AudioSource.PlayClipAtPoint(SoundManager.instance.fall1, gameObject.transform.position);
+                break;
+
+            case 1:
+                AudioSource.PlayClipAtPoint(SoundManager.instance.fall2, gameObject.transform.position);
+                break;
+
+            case 2:
+                AudioSource.PlayClipAtPoint(SoundManager.instance.fall3, gameObject.transform.position);
+                break;
+        }
+
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }

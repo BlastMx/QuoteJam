@@ -71,7 +71,7 @@ public class Arrow : MonoBehaviour
 
         if (!SoundManager.instance.source.isPlaying)
         {
-            switch (Random.Range(0, 4))
+            switch (Random.Range(0, 3))
             {
                 case 0:
                     SoundManager.instance.source.clip = SoundManager.instance.heureDePointe1;

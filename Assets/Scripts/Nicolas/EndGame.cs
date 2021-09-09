@@ -21,10 +21,10 @@ public class EndGame : MonoBehaviour
         if(TimerManager.instance.end && bread == null)
         {
             
-            if (SandwichManager.instance.sandwich.Count-1 >= 0)
+            if (SandwichManager.instance.sandwich.Count-1 > 0)
                 bread = Instantiate(breadTop, new Vector3(SandwichManager.instance.sandwich[SandwichManager.instance.sandwich.Count - 1].transform.position.x, GameObject.Find("WaypointsParent").transform.position.y, SandwichManager.instance.sandwich[SandwichManager.instance.sandwich.Count - 1].transform.position.z), Quaternion.identity);
             else
-                bread = Instantiate(breadTop, new Vector3(GameObject.Find("LowerBread").transform.position.x, GameObject.Find("WaypointsParent").transform.position.y, GameObject.Find("LowerBread").transform.position.z), Quaternion.identity);
+                bread = Instantiate(breadTop, new Vector3(GameObject.Find("LowerBread").transform.position.x, GameObject.Find("ForkWaypointsParent").transform.position.y, GameObject.Find("LowerBread").transform.position.z), Quaternion.identity);
         }
         if(bread!=null)
         {
