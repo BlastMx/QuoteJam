@@ -24,6 +24,8 @@ public class Arrow : MonoBehaviour
     private float speedEventCounter;
     private float  stopEventCounter;
 
+    private bool rush = false;
+
     private Coroutine currentCoroutine = null;
     //private Vector3 velocity = Vector3.zero;
 
@@ -59,12 +61,35 @@ public class Arrow : MonoBehaviour
         {
             currentCoroutine = StartCoroutine(AccelerationCoroutine());
         }
+
     }
 
     private IEnumerator AccelerationCoroutine()
     {
         float currentSpeed = speed;
         speed = eventSpeed;
+
+        if (!SoundManager.instance.source.isPlaying)
+        {
+            switch (Random.Range(0, 4))
+            {
+                case 0:
+                    SoundManager.instance.source.clip = SoundManager.instance.heureDePointe1;
+                    break;
+
+                case 1:
+                    SoundManager.instance.source.clip = SoundManager.instance.heureDePointe2;
+                    break;
+
+                case 2:
+                    SoundManager.instance.source.clip = SoundManager.instance.heureDePointe3;
+                    break;
+
+            }
+
+            SoundManager.instance.source.Play();
+        }
+
         yield return new WaitForSeconds(timeOfAcceleration);
 
         speed = currentSpeed;
@@ -76,6 +101,7 @@ public class Arrow : MonoBehaviour
     private void StopEvent()
     {
         stopEventCounter += Time.deltaTime;
+
         if (stopEventCounter >= timeBetweenStopEvent && currentCoroutine == null)
         {
             currentCoroutine = StartCoroutine(StopCoroutine());
@@ -86,6 +112,14 @@ public class Arrow : MonoBehaviour
     {
         float currentSpeed = speed;
         speed = 0f;
+
+        if (Random.Range(0, 2) == 0)
+            SoundManager.instance.source.clip = SoundManager.instance.crampe1;
+        else
+            SoundManager.instance.source.clip = SoundManager.instance.crampe2;
+
+        SoundManager.instance.source.Play();
+
         yield return new WaitForSeconds(timeOfStop);
 
         speed = currentSpeed;

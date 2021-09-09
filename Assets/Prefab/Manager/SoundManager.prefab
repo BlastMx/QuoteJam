@@ -60,10 +60,13 @@ MonoBehaviour:
   saucicsse: {fileID: 8300000, guid: 416616423b65e4248bd453376d35af08, type: 3}
   jambon: {fileID: 8300000, guid: f2f4aeeb62fc6eb4f8b62c1868597344, type: 3}
   fall: {fileID: 0}
-  heureDePointe: {fileID: 0}
+  heureDePointe1: {fileID: 8300000, guid: c3a1f6d6620a84542bc699465dfcac02, type: 3}
+  heureDePointe2: {fileID: 8300000, guid: bb7eb9c43dafe9c4c83c060c30366575, type: 3}
+  heureDePointe3: {fileID: 8300000, guid: f81fc04748c84654295dda44c3d99400, type: 3}
   paysDeGalleIndependant: {fileID: 8300000, guid: 9c29833f6ffc30247a77f9eeaa9180b5, type: 3}
   chef: {fileID: 0}
-  crampe: {fileID: 0}
+  crampe1: {fileID: 8300000, guid: 144c6007b585fb6469200a83200ebff9, type: 3}
+  crampe2: {fileID: 8300000, guid: 0ab262ca7eb402847861425de8ee8c91, type: 3}
   comcombre: {fileID: 0}
   win: {fileID: 0}
   lose: {fileID: 0}
