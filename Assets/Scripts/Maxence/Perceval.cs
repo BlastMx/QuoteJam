@@ -32,7 +32,6 @@ public class Perceval : MonoBehaviour
     void Start()
     {
         randomPercevalApparition = Random.Range(15, TimerManager.instance.timer - 15);
-        Debug.Log(randomPercevalApparition);
     }
 
     // Update is called once per frame
