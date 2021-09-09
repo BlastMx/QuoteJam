@@ -31,7 +31,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if (Menu.instance.onMenu)
+        if (Menu.instance.onMenu || Menu.instance.gameOver)
             return;
 
         MoveBetweenWaypoints();

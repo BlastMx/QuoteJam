@@ -77,7 +77,7 @@ public class AlimentsChoiceSpawner : MonoBehaviour
 
     void ChooseAliments()
     {
-        if (!canLandAliments)
+        if (!canLandAliments || Menu.instance.gameOver)
             return;
 
         if (Input.GetKeyDown(KeyCode.Z))

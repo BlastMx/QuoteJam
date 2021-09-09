@@ -32,6 +32,8 @@ public class EndGame : MonoBehaviour
         }
         if(bread!=null)
         {
+            Menu.instance.gameOver = true;
+
             Menu.instance.UiGame.DOFade(0, 1f);
             Menu.instance.orderPanel.DOFade(0, 1f).OnComplete(()=> 
             {

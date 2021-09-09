@@ -23,6 +23,8 @@ public class Menu : MonoBehaviour
 
     [HideInInspector]
     public bool onMenu = true;
+    [HideInInspector]
+    public bool gameOver = false;
 
     public static Menu instance;
 
