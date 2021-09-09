@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SandwichManager : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class SandwichManager : MonoBehaviour
     public CameraFollow cameraScript;
 
     public List<GameObject> sandwich;
+
+    [SerializeField]
+    private Transform forkWayPoints;
 
     private int moveCount;
 
@@ -82,14 +87,21 @@ public class SandwichManager : MonoBehaviour
 					ParticleManager.instance.StartParticle("StarSpark", pos);
                 }
             }
-
         }
 
         MoveCamera();
+        UpFork();
+    }
+
+    private void UpFork()
+    {
+        forkWayPoints.DOMoveY(sandwich[sandwich.Count - 1].transform.position.y + 5f, 0.5f);
     }
 
     public void MoveCamera()
     {
-        cameraScript.targetPos.y = sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y / 2;
+        cameraScript.gameObject.transform.DOMoveY(sandwich[sandwich.Count - 2].transform.position.y - sandwich[0].transform.position.y / 2, 0.2f);
+
+        cameraScript.gameObject.transform.DOMoveZ(cameraScript.gameObject.transform.position.z - 0.2f, 0.2f);
     }
 }
