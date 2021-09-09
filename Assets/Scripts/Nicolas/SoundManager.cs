@@ -26,7 +26,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip beurre;
     public AudioClip saucicsse;
     public AudioClip jambon;
-    public AudioClip fall;
+    public AudioClip fall1;
+    public AudioClip fall2;
+    public AudioClip fall3;
 
     [Header("Speciaux")]
     public AudioClip heureDePointe1;
