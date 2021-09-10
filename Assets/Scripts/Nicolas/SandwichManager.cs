@@ -52,6 +52,7 @@ public class SandwichManager : MonoBehaviour
             {
                 ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
+<<<<<<< HEAD
 
                 foreach(GameObject aliment in sandwich)
                 {
@@ -59,6 +60,13 @@ public class SandwichManager : MonoBehaviour
                     rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
                 }
+=======
+                ScoreManager.instance.combo += 0.5f;
+                Vector3 pos = up.transform.position;
+                //pour positioner devant le burger
+                pos.z -= 1.55f;
+                ParticleManager.instance.StartParticle("StarSpark", pos);
+>>>>>>> GD_Branch
             }
             else
             {
