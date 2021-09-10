@@ -108,7 +108,7 @@ public class SandwichManager : MonoBehaviour
         switch (numberCombo)
         {
             case 1:
-                SoundManager.instance.source.clip = SoundManager.instance.delicieux;
+                SoundManager.instance.source.clip = SoundManager.instance.delicat;
                 SoundManager.instance.source.Play();
                 break;
             case 2:
@@ -116,15 +116,11 @@ public class SandwichManager : MonoBehaviour
                 SoundManager.instance.source.Play();
                 break;
             case 3:
-                SoundManager.instance.source.clip = SoundManager.instance.semiCroustillant;
+                SoundManager.instance.source.clip = SoundManager.instance.delicieux;
                 SoundManager.instance.source.Play();
                 break;
             case 4:
-                SoundManager.instance.source.clip = SoundManager.instance.delicat;
-                SoundManager.instance.source.Play();
-                break;
-            case 5:
-                SoundManager.instance.source.clip = SoundManager.instance.smoothy;
+                SoundManager.instance.source.clip = SoundManager.instance.semiCroustillant;
                 SoundManager.instance.source.Play();
                 break;
             default: break;
