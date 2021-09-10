@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
         if (Menu.instance.onMenu)
             return;
 
-        scoreText.text = "SCORE : " + score;
-        comboText.text = "COMBO : x" + combo;
+        scoreText.text = ": " + score;
+        comboText.text = ": x" + combo;
     }
 }
