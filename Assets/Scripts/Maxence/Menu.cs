@@ -16,7 +16,13 @@ public class Menu : MonoBehaviour
     [SerializeField]
     private List<Button> menuButtons = new List<Button>();
 
+    [SerializeField]
+    private List<GameObject> menusHowToPlay = new List<GameObject>();
+
     public Transform mainCam;
+
+    [SerializeField]
+    private CanvasGroup mainmenu, howToPlayMenu;
 
     private Vector3 startPos = new Vector3(0, 3f, -2.5f);
     private Vector3 targetPosCam = new Vector3(0, 1.75f, 0.9f);
@@ -44,6 +50,11 @@ public class Menu : MonoBehaviour
         orderPanel.DOFade(0, 0.1f);
 
         mainCam.position = startPos;
+
+        howToPlayMenu.DOFade(0, 0.1f).OnComplete(() =>
+        {
+            howToPlayMenu.gameObject.SetActive(false);
+        });
     }
 
     public void PlayGame()
@@ -68,7 +79,22 @@ public class Menu : MonoBehaviour
 
     public void HowToPlay()
     {
-        Debug.Log("here");
+        mainmenu.DOFade(0, 0.5f).OnComplete(() =>
+        {
+            mainmenu.gameObject.SetActive(false);
+            howToPlayMenu.gameObject.SetActive(true);
+            howToPlayMenu.DOFade(1, 0.5f);
+        });
+    }
+
+    public void BackMenu()
+    {
+        howToPlayMenu.DOFade(0, 0.5f).OnComplete(()=> 
+        {
+            howToPlayMenu.gameObject.SetActive(false);
+            mainmenu.gameObject.SetActive(true);
+            mainmenu.DOFade(1, 0.5f);
+        });
     }
 
     public void QuitGame()
@@ -79,5 +105,13 @@ public class Menu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void changeHowToPlay(int value)
+    {
+        foreach (GameObject menu in menusHowToPlay)
+            menu.SetActive(false);
+
+        menusHowToPlay[value].SetActive(true);
     }
 }
