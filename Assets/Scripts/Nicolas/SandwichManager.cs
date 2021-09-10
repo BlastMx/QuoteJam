@@ -62,9 +62,9 @@ public class SandwichManager : MonoBehaviour
 
             if (up.GetComponent<Aliment>().ingredientsDisponible == enumIngredients.IngredientsDisponible.Pain)
             {
-                ScoreManager.instance.combo = 1f;
+                /*ScoreManager.instance.combo = 1f;
                 comboIngredients = 0;
-                numberCombo = 0;
+                numberCombo = 0;*/
 
                 foreach(GameObject aliment in sandwich)
                 {
