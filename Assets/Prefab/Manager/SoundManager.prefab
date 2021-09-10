@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0034ab61b0adf40af2f824ec18bacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sourceMusic: {fileID: 0}
   source: {fileID: 7058937587071763440}
-  ambiance: {fileID: 0}
+  inGame: {fileID: 8300000, guid: 9df6321663547414abf283a05f983e79, type: 3}
+  acceuil: {fileID: 8300000, guid: 3669cdb98ab687b47b56e1f8c9020b69, type: 3}
   combo: {fileID: 8300000, guid: ca988da6f5a8c5445b2c89e73f7babe3, type: 3}
   smoothy: {fileID: 8300000, guid: c6b4aee16cc1b8044b6108bfc103a28a, type: 3}
   delicat: {fileID: 8300000, guid: d3e048a4b8fea49419f93b40a31c562f, type: 3}

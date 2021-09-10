@@ -5,10 +5,12 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    public AudioSource sourceMusic;
     public AudioSource source;
 
     [Header("Musique")]
-    public AudioClip ambiance;
+    public AudioClip inGame;
+    public AudioClip acceuil;
 
     [Header("COMBO")]
     public AudioClip combo;
@@ -55,8 +57,22 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        /*source.clip = ambiance;
-        source.loop = true;
-        source.Play();*/
+        sourceMusic.clip = acceuil;
+        sourceMusic.loop = true;
+        sourceMusic.Play();
+    }
+
+    private void Update()
+    {
+        if(Menu.instance.onMenu && sourceMusic.clip != acceuil)
+        {
+            sourceMusic.clip = acceuil;
+            sourceMusic.Play();
+        }
+        else if(!Menu.instance.onMenu && sourceMusic.clip != inGame)
+        {
+            sourceMusic.clip = inGame;
+            sourceMusic.Play();
+        }
     }
 }

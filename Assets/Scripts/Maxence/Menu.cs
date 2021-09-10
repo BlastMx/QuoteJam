@@ -34,6 +34,8 @@ public class Menu : MonoBehaviour
 
     public static Menu instance;
 
+    [SerializeField] private AudioSource source;
+
     private void Awake()
     {
         if (instance != null)
@@ -64,7 +66,9 @@ public class Menu : MonoBehaviour
 
         PanelMenu.DOFade(0, 0.5f).OnComplete(()=>
         {
+            source.DOFade(0, 0.5f);
             mainCam.DOMove(targetPosCam, 2f).OnComplete(()=> {
+                source.DOFade(1, 0.5f);
                 onMenu = false;
                 UiGame.DOFade(1, 1f);
                 orderPanel.DOFade(1, 1f);
