@@ -100,6 +100,21 @@ public class Aliment : enumIngredients
 
                 if (TimerManager.instance.reset)
                 {
+                    switch (Random.Range(0, 3))
+                    {
+                        case 0:
+                            AudioSource.PlayClipAtPoint(SoundManager.instance.fall1, gameObject.transform.position);
+                            break;
+
+                        case 1:
+                            AudioSource.PlayClipAtPoint(SoundManager.instance.fall2, gameObject.transform.position);
+                            break;
+
+                        case 2:
+                            AudioSource.PlayClipAtPoint(SoundManager.instance.fall3, gameObject.transform.position);
+                            break;
+                    }
+
                     TimerManager.instance.reset = false;
                     TimerManager.instance.TimeLess(TimerManager.instance.timeLess);
                 }
@@ -126,21 +141,6 @@ public class Aliment : enumIngredients
 
     IEnumerator DestroyObject()
     {
-        switch (Random.Range(0, 3))
-        {
-            case 0:
-                AudioSource.PlayClipAtPoint(SoundManager.instance.fall1, gameObject.transform.position);
-                break;
-
-            case 1:
-                AudioSource.PlayClipAtPoint(SoundManager.instance.fall2, gameObject.transform.position);
-                break;
-
-            case 2:
-                AudioSource.PlayClipAtPoint(SoundManager.instance.fall3, gameObject.transform.position);
-                break;
-        }
-
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
